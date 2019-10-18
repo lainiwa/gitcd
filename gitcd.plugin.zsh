@@ -12,6 +12,7 @@ gitcd() {
     dir=$(_gitcd_giturl2dir "${url}")
 
     if [[ -n ${GITCD_TRIM} ]]; then
+        dir=${dir%/}     # "github.com/foo/bar/" ==> "github.com/foo/bar"
         dir=${dir##*\/}  # "github.com/foo/bar" ==> "bar"
     fi
 
